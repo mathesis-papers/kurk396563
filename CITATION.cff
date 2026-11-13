@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-05"
+version: "2"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/kurk396563?version=2"
+license: "CC-BY-4.0"

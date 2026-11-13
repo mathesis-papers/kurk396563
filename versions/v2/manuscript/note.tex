@@ -1,0 +1,560 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array,longtable}
+\usepackage[margin=0.88in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\stir}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\Schur}{s}
+\hypersetup{pdftitle={Corrected formulas and integer exponents for Amdeberhan--Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)},pdfauthor={Haobo Ma; Wenlin Zhang},pdfsubject={Integer exponents, corrected Stirling determinant weights, and rectangular Schur polynomials}}
+\title{\Large Corrected formulas and integer exponents for\newline Amdeberhan--Ekhad (2022): Kurkov's OEIS A396563\newline FORMULA conjecture, revision 15 (1 June 2026)}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{4 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We extend the Stirling determinant formulas of Merca (2014) and
+Amdeberhan--Ekhad (2022), giving a corrected subset expansion and a normalized
+proof of Kurkov's OEIS A396563 FORMULA conjecture, approved revision 15
+(1 June 2026). The minor equals $\Schur_{(k^m)}(1,2,\ldots,n+m)$ for all
+$n,k\geq0$, $m\geq1$; allowing every integer exponent yields a vanishing
+interval and an entire reciprocal-power family, including Kurkov's A132393
+FORMULA conjecture (24 May 2026). We recover the earlier rational row
+generating functions and give a second-kind moment determinant.
+We also correct the alphabet in their second-kind Schur evaluation.
+Companion recurrences and two generating-function normalizations are
+treated with explicit attribution and coverage.
+\end{abstract}
+
+\section{The conjecture and its Schur form}
+Write $\stir ab$ for the unsigned Stirling number of the first kind, so that
+$z(z+1)\cdots(z+a-1)=\sum_b\stir ab z^b$.
+Kurkov's conjecture~\cite{kurkov} concerns
+\begin{equation}\label{eq:minor}
+B(n,k,m)=\det\left[\stir{n+m+i}{n+j}\right]_{1\leq i,j\leq k}.
+\end{equation}
+Matrix indices start at one. Empty products and determinants are one, and
+$(a)_{\underline r}=a!/(a-r)!$ for integers $0\leq r\leq a$.
+The array named A396563 is the specialization $A(n,k)=B(n,k,2)$.
+The full conjecture was introduced in revision 6 (31 May 2026);
+the frozen FORMULA line is at approved revision 15 (1 June 2026).
+
+The determinant-to-fixed-alphabet reduction is Merca's
+Theorem 2.1~\cite{merca}, published 12 August 2014.
+Amdeberhan and Ekhad~\cite[Theorem 2]{ae} explicitly state the Schur evaluation
+in 2022: their $\beta_k(n+m,n)$ is exactly $B(n,k,m)$.
+Their Theorem 3 anticipates the Vandermonde-square expansion, but its printed
+weights use the rectangle height where the alphabet size is required.
+Section~\ref{sec:correction} states and proves the corrected formula.
+The Schur evaluation and the rational row generating functions are earlier
+results; the proof below supplies a self-contained normalization of the
+literal OEIS sums and the all-integer-exponent extension.
+
+For a finite alphabet $X$, let $e_r(X)$ and $h_r(X)$ be the elementary and complete
+homogeneous symmetric polynomials, with $e_0=h_0=1$ and $e_r=h_r=0$ for $r<0$.
+We use the Jacobi--Trudi identities and the tableau and bialternant descriptions
+of Schur polynomials in Tamvakis~\cite[\S\S2.7, 3.2--3.5]{tamvakis}.
+Thus $(k^m)$ denotes a rectangle with $m$ rows of length $k$.
+The argument below specializes these classical identities to the exact nested
+sum; the Schur identities themselves are the tools, not additional conjectures.
+
+\begin{theorem}\label{thm:main}
+For $n,k\geq0$ and $m\geq1$, put $N=n+m$.
+The following identities also hold at $m=0$ with empty products:
+\begin{align}
+B(n,k,m)&=\Schur_{(k^m)}(1,2,\ldots,N)\label{eq:schur}\\
+&=\frac{1}{\prod_{i=0}^{m-1}(n+i)!}
+\sum_{n\geq j_1\geq\cdots\geq j_m\geq0}
+(-1)^{\sum_tj_t}
+\prod_{1\leq q<p\leq m}(j_q-j_p+p-q)^2\notag\\[-2pt]
+&\hspace{32mm}\cdot
+\prod_{t=1}^{m}
+\frac{(n+t-1)_{\underline{j_t}}(n-j_t+t)^{n+k}}
+{(j_t+m-t)!}.\label{eq:sum}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+First convert the minor to a coefficient determinant. Set
+$F(z)=z\prod_{a=1}^{N}(z+a)$ and
+$Q_{i-1}(z)=\prod_{a=N+1}^{N+i-1}(z+a)$.
+The entry in row $i$, column $j$ of~\eqref{eq:minor} is
+$[z^{n+j}]F(z)Q_{i-1}(z)$.
+The polynomials $Q_0,\ldots,Q_{k-1}$ have respective degrees $0,\ldots,k-1$
+and leading coefficient one. Their change of basis from $1,z,\ldots,z^{k-1}$
+is lower triangular with diagonal entries one. Replacing them by these monomials
+therefore leaves the determinant unchanged. Consequently
+\begin{equation}\label{eq:elementary}
+B(n,k,m)=\det[e_{m+i-j}(1,\ldots,N)]_{1\leq i,j\leq k}
+=\Schur_{(k^m)}(1,\ldots,N).
+\end{equation}
+This specializes Merca's varying-alphabet determinant identity with
+his parameters $(a,K,r)=(m,n+m,k)$~\cite[Theorem 2.1 and \S3]{merca}.
+The last equality is the dual Jacobi--Trudi identity, transposed, for the
+partition conjugate to $(m^k)$. Negative indices represent zero, also when the
+coefficient degree is negative or exceeds $\deg F$.
+
+For distinct nonzero $x_1,\ldots,x_N$, the bialternant formula gives
+\begin{equation}\label{eq:subset}
+\Schur_{(k^m)}(x_1,\ldots,x_N)
+=\sum_{\substack{S\subseteq\{1,\ldots,N\}\\|S|=m}}
+\frac{\prod_{a\in S}x_a^{n+k}}
+{\prod_{a\in S,\,b\notin S}(x_a-x_b)},\qquad n=N-m.
+\end{equation}
+Indeed, expand its numerator determinant along the first $m$ rows.
+Those rows have exponents $n+k+m-1,\ldots,n+k$ and the remaining rows
+have exponents $n-1,\ldots,0$. The two minors are Vandermonde determinants,
+with the factor $\prod_{a\in S}x_a^{n+k}$ in the first one.
+Factoring the full denominator Vandermonde into the two within-set
+Vandermondes and the cross factors cancels the Laplace shuffle sign and gives
+exactly~\eqref{eq:subset}.
+
+Put $P(z)=\prod_{a=1}^N(z-x_a)$ and list $S$ in increasing index order.
+Each pair inside $S$ contributes
+$(x_a-x_b)(x_b-x_a)=-(x_b-x_a)^2$ to $\prod_{a\in S}P'(x_a)$.
+Thus~\eqref{eq:subset} is also
+\begin{equation}\label{eq:vandermonde}
+(-1)^{\binom m2}\sum_{|S|=m}
+\prod_{a<b\in S}(x_b-x_a)^2
+\prod_{a\in S}\frac{x_a^{n+k}}{P'(x_a)}.
+\end{equation}
+Specialize $x_a=a$. Then
+$P'(a)=(-1)^{N-a}(a-1)!(N-a)!$.
+The map
+\[
+a_t=n-j_t+t\quad(1\leq t\leq m)
+\]
+is a bijection between the chains in~\eqref{eq:sum} and the subsets
+$1\leq a_1<\cdots<a_m\leq N$.
+For its inverse, $j_t=n+t-a_t$ lies in $[0,n]$ because
+$t\leq a_t\leq n+t$, and
+$j_t-j_{t+1}=a_{t+1}-a_t-1\geq0$.
+Moreover,
+\[
+N-a_t=j_t+m-t,\qquad
+\frac{(n+t-1)_{\underline{j_t}}}{(n+t-1)!}=\frac1{(a_t-1)!},
+\]
+and
+$\binom m2+\sum_t(N-a_t)=\sum_tj_t+m(m-1)$.
+The latter difference is even. Substituting in~\eqref{eq:vandermonde} now
+gives~\eqref{eq:sum}, including its sign and every factorial.
+For $m=0$ the minor in~\eqref{eq:minor} is lower triangular with diagonal one,
+and the sum has its single empty term.
+\end{proof}
+
+\section{Corrected weights in the 2022 subset formula}\label{sec:correction}
+Use the notation $\beta_r(A,b)=\det[\stir{A+i}{b+j}]_{1\leq i,j\leq r}$
+of Amdeberhan--Ekhad~\cite{ae}.
+Their Theorem 3 sums over $a$-subsets of $[a+b]$ but defines weights only on
+$[a]$ by $A_i=(-1)^{a-i}i^a\binom ai/a!$.
+When $b>0$, some required weights therefore have no printed definition.
+If this expression is extended using $\binom ai=0$ for $i>a$,
+$(a,b,r)=(1,1,1)$ gives $1$, whereas $\beta_1(2,1)=\stir32=3$.
+
+\begin{corollary}\label{cor:weights}
+For $a\geq1,b,r\geq0$ and $N=a+b$, replace those weights by
+\[
+\widetilde A_i=(-1)^{N-i}\frac{i^N}{N!}\binom Ni
+              =\frac{i^{N-1}}{P'(i)},\qquad
+P(z)=\prod_{j=1}^N(z-j),\quad 1\leq i\leq N.
+\]
+Then the corrected subset identity is
+\[
+\beta_r(a+b,b)=(-1)^{\binom a2}
+\sum_{1\leq i_1<\cdots<i_a\leq N}
+\prod_{u<v}(i_v-i_u)^2\prod_{t=1}^a\widetilde A_{i_t}i_t^{r-a+1}.
+\]
+\end{corollary}
+\begin{proof}
+Each corrected weight times $i^{r-a+1}$ equals $i^{b+r}/P'(i)$.
+Equation~\eqref{eq:vandermonde}, with $(m,n,k)=(a,b,r)$, proves the identity.
+At $(a,b,r)=(1,1,1)$ the two weights are $-1,2$, giving $-1+2\cdot2=3$.
+The substitution $i_t=b-j_t+t$ is exactly the chain conversion in
+Theorem~\ref{thm:main}; hence the corrected formula is the literal A396563 sum.
+\end{proof}
+
+Let $\gamma_r(A,b)=\det[S(A+i,b+j)]_{1\leq i,j\leq r}$, where $S$ denotes
+second-kind Stirling numbers. The second-kind part of Theorem 2 in~\cite{ae}
+prints the alphabet $(1,\ldots,A)$. The correct alphabet is $(1,\ldots,b+r)$:
+\begin{equation}\label{eq:gamma}
+\gamma_r(A,b)=\Schur_{((A-b)^r)}(1,\ldots,b+r),\qquad A\geq b\geq0,\quad r\geq1.
+\end{equation}
+For an explicit witness, $\gamma_1(3,1)=S(4,2)=7$,
+whereas the printed alphabet gives $\Schur_{(2)}(1,2,3)=25$.
+To prove~\eqref{eq:gamma}, put $d=A-b$, $M=b+r$ and
+$H(z)=\prod_{t=1}^M(1-tz)^{-1}$. Its $(i,j)$ entry is
+\[
+[z^{d+i-1}]H(z)Q_j(z),\qquad
+Q_j(z)=z^{j-1}\prod_{t=b+j+1}^{M}(1-tz),
+\]
+since $S(A+i,b+j)=h_{d+i-j}(1,\ldots,b+j)$.
+This is also the specialization of Merca's Theorem 2.2~\cite{merca}
+with his parameters $(a,k,n)=(d,b,r)$.
+Each $Q_j$ has lowest term $z^{j-1}$ with coefficient one and degree at most
+$r-1$. The coefficient change of basis is triangular with determinant one;
+replacing $Q_j$ by $z^{j-1}$ leaves
+$\det[h_{d+i-j}(1,\ldots,M)]=\Schur_{(d^r)}(1,\ldots,M)$.
+In particular $\beta_r(a+b,b)=\gamma_a(r+b,b)$, the last equality
+in the corrected Theorem 3. This proof also covers $r=0$ by the empty-determinant
+convention when that value occurs in $\beta_r$.
+
+\section{Integer exponents and determinant consequences}
+For an integer $a$, let $F(n,m;a)$ denote the right-hand side
+of~\eqref{eq:sum}, with exponent $n+k$ replaced by $a$.
+All bases $n-j_t+t$ are positive, so negative powers are well defined.
+
+\begin{corollary}\label{cor:integer}
+For $n,m\geq1$ and any integer $a$, with $N=n+m$,
+\begin{equation}\label{eq:integer}
+F(n,m;a)=
+\begin{cases}
+\Schur_{((a-n)^m)}(1,\ldots,N),&a\geq n,\\
+0,&-m<a<n,\\
+\displaystyle\frac{(-1)^{nm}}{(N!)^{m+r}}
+\Schur_{(r^n)}(1,\ldots,N),&a=-m-r,\quad r\geq0.
+\end{cases}
+\end{equation}
+For $n=0$, instead $F(0,m;a)=(m!)^a$ for every integer $a$.
+\end{corollary}
+\begin{proof}
+For a distinct nonzero alphabet $X=(x_1,\ldots,x_N)$ put
+\[
+C_a(X)=\sum_{|S|=m}
+\frac{\prod_{s\in S}x_s^a}{\prod_{s\in S,t\notin S}(x_s-x_t)}.
+\]
+The chain conversion in Theorem~\ref{thm:main} gives
+$F(n,m;a)=C_a(1,\ldots,N)$ for every integer $a$.
+The same Laplace expansion expresses $C_a$ as the quotient of the alternant
+with row exponents $a+m-1,\ldots,a,n-1,\ldots,0$ by the ordinary Vandermonde.
+When $-m<a<n$ and $n,m\geq1$, these two exponent intervals overlap;
+the determinant has equal rows, so it vanishes. For $a\geq n$,
+\eqref{eq:subset} gives the first case.
+
+For $Y=(x_1^{-1},\ldots,x_N^{-1})$, factoring each cross difference gives
+\[
+C_a(X)=(-1)^{nm}\Big(\prod_i x_i\Big)^{-m}C_{n-m-a}(Y).
+\]
+Indeed, the denominator cross product changes by
+$(-1)^{nm}(\prod_i x_i)^m\prod_{s\in S}x_s^{n-m}$.
+At $a=-m-r$, the last subscript is $n+r$ and hence the last factor is
+$\Schur_{(r^m)}(Y)$.
+The rectangular complement identity
+\[
+\Schur_{(r^m)}(X^{-1})
+ =\Big(\prod_i x_i\Big)^{-r}\Schur_{(r^n)}(X)
+\]
+follows by multiplying each column of the numerator alternant by
+$x_i^{r+N-1}$, reversing its rows, and doing the same with exponent $N-1$
+in the denominator; the two reversal signs cancel.
+Specializing to $X=(1,\ldots,N)$ proves the third case.
+If $n=0$ there is only the full subset, giving $(m!)^a$;
+this explains why the vanishing interval requires $n\geq1$.
+\end{proof}
+
+\begin{corollary}\label{cor:moment}
+Let $\left\{\begin{smallmatrix}u\\v\end{smallmatrix}\right\}$ denote a Stirling
+number of the second kind, with value zero when $u<v$. For $n,k\geq0,m\geq1$,
+\[
+B(n,k,m)=(-1)^{\binom m2}
+\det\left[\left\{\begin{matrix}n+k+i+j+1\\n+m\end{matrix}\right\}\right]_{0\leq i,j<m}.
+\]
+\end{corollary}
+\begin{proof}
+For $P(z)=\prod_{t=1}^N(z-t)$ set $M_\ell=\sum_{t=1}^N t^\ell/P'(t)$.
+Partial fractions give
+\[
+\sum_{\ell\geq0}M_\ell z^\ell
+=\frac{z^{N-1}}{\prod_{t=1}^N(1-tz)},\qquad
+M_\ell=\left\{\begin{matrix}\ell+1\\N\end{matrix}\right\}.
+\]
+The second identity follows also by applying the Stirling recurrence to
+$\prod_{t=1}^N(1-tz)^{-1}$, whose coefficient of $z^d$ is
+$\left\{\begin{smallmatrix}N+d\\N\end{smallmatrix}\right\}$.
+Cauchy--Binet applied to $[M_{n+k+i+j}]_{0\leq i,j<m}$ gives
+\[
+\sum_{|S|=m}\prod_{s<t\in S}(t-s)^2\prod_{s\in S}\frac{s^{n+k}}{P'(s)}.
+\]
+Equation~\eqref{eq:vandermonde} supplies the stated sign.
+\end{proof}
+
+\begin{corollary}\label{cor:rows}
+For fixed $n\geq0,m\geq1$, put $N=n+m$, $\lambda_S=\prod_{s\in S}s$ and
+$D_S=\prod_{s\in S,t\notin S}(s-t)$. Then, as a formal power series,
+\[
+\sum_{k\geq0}B(n,k,m)z^k
+ =\sum_{|S|=m}\frac{\lambda_S^n}{D_S(1-\lambda_S z)}.
+\]
+Consequently the sequence in $k$ is annihilated by
+$\prod_{|S|=m}(E-\lambda_S)$, where $E$ shifts $k$ to $k+1$.
+\end{corollary}
+\begin{proof}
+Sum the geometric series in~\eqref{eq:subset}.
+Each shift factor kills its corresponding exponential term; the factors commute.
+Repeated subset products cause no difficulty, though the resulting recurrence
+need not have minimal order.
+\end{proof}
+This is the denominator of Amdeberhan--Ekhad~\cite[Theorem 1]{ae}:
+their complementary $n$-subset products give $N!/\prod_{t\notin S}t=\lambda_S$.
+
+\section{Boundary values and the reciprocal-power conjecture}
+The tableau formula~\cite[\S3.2, (24)]{tamvakis} shows that
+$B(n,k,m)$ is a positive integer and
+\begin{equation}\label{eq:lower}
+B(n,k,m)\geq(m!)^k,\qquad B(0,k,m)=(m!)^k,\qquad B(n,0,m)=1.
+\end{equation}
+For the inequality, fill every box in row $t$ of the rectangle by $t$;
+this semistandard tableau contributes $(m!)^k$.
+When $n=0$, every column must be $1,\ldots,m$, so it is the only tableau.
+The $n=0$ determinant evaluation is already Chandramouli's
+Proposition 2~\cite{chandramouli}, with his row parameter $m+1$.
+
+In particular the four named boundary sequences in A396563 are
+\begin{align*}
+A(0,k)&=2^k, & A(1,k)&=3\cdot6^k-3\cdot3^k+2^k,\\
+A(n,0)&=1, & A(n,1)&=\frac{(n+1)(n+2)(n+3)(3n+8)}{24}.
+\end{align*}
+For the second formula apply~\eqref{eq:subset} with $N=3,m=2$;
+the subsets $\{1,2\},\{1,3\},\{2,3\}$ contribute
+$2^k,-3\cdot3^k,3\cdot6^k$, respectively.
+For the fourth use
+$e_2(1,\ldots,N)=\big((\sum_{a=1}^Na)^2-\sum_{a=1}^Na^2\big)/2$
+with $N=n+2$.
+The second row is A001240, whose closed form is recorded by Fischer
+(25 June 2007); the fourth formula is the $n\mapsto n+1$ shift of A000914.
+These specializations are consequences of established formulas for those
+sequences~\cite{boundaries}.
+In particular Corollary~\ref{cor:rows} gives the recorded A001240 generating
+function and recurrence:
+\[
+\sum_{k\geq0}A(1,k)z^k=\frac1{(1-2z)(1-3z)(1-6z)},\qquad
+A(1,k+3)=11A(1,k+2)-36A(1,k+1)+36A(1,k).
+\]
+
+For the companion conjecture define
+\[
+R(n,m)=\sum_{n\geq j_1\geq\cdots\geq j_m\geq0}
+(-1)^{nm+\sum_tj_t}
+\prod_{q<p}(j_q-j_p+p-q)^2
+\prod_{t=1}^m\frac{(n+t-1)_{\underline{j_t}}}
+{(n-j_t+t)^{m+1}(j_t+m-t)!}.
+\]
+\begin{corollary}\label{cor:reciprocal}
+For $n\geq0,m\geq1$, Kurkov's FORMULA conjecture in OEIS A132393,
+dated 24 May 2026, holds:
+\begin{equation}\label{eq:reciprocal}
+\stir{n+m+1}{m+1}=(n+m)!\prod_{t=1}^m(n+t)^t\,R(n,m).
+\end{equation}
+\end{corollary}
+\begin{proof}
+Let $C_a(X)=\sum_{|S|=m}\prod_{s\in S}x_s^a/
+\prod_{s\in S,t\notin S}(x_s-x_t)$ for distinct nonzero $X$ of size $N=n+m$.
+Writing $Y=(x_1^{-1},\ldots,x_N^{-1})$ gives
+\[
+C_{-m-1}(X)=(-1)^{mn}\Big(\prod_a x_a\Big)^{-m}C_{n+1}(Y)
+=\frac{(-1)^{mn}e_n(X)}{(\prod_a x_a)^{m+1}}.
+\]
+For the first equality use
+$x_s-x_t=-x_sx_t(x_s^{-1}-x_t^{-1})$ in all $mn$ cross factors.
+For the second use~\eqref{eq:subset} with $k=1$,
+$\Schur_{(1^m)}(Y)=e_m(Y)$, and
+$e_m(Y)=e_n(X)/\prod_a x_a$.
+The chain conversion in the main proof remains valid with exponent $-m-1$,
+since every $a_t\geq1$. Therefore at $X=(1,\ldots,N)$,
+\[
+R(n,m)=\frac{\prod_{t=1}^m(n+t-1)!}{(N!)^{m+1}}\,e_n(1,\ldots,N).
+\]
+Finally $e_n(1,\ldots,N)=\stir{N+1}{m+1}$, and
+$\prod_{t=1}^m(n+t)^t\prod_{t=1}^m(n+t-1)!=(N!)^m$.
+The factors $1,\ldots,n$ already occur $m$ times on each side.
+For each factor $n+r$, $1\leq r\leq m$,
+its $r$ occurrences in the first product and $m-r$ in the second give $m$.
+These identities yield~\eqref{eq:reciprocal}.
+\end{proof}
+
+\section{Other formulas in the companion entry}
+The following short deductions cover the neighboring formulas in A132393.
+They are established identities, not additional conjectures.
+Write $c(v,k)=\stir vk$, $R_v(x)=\prod_{j=0}^{v-1}(x+j)$, and
+$H_v=\sum_{j=1}^v1/j$, with $H_0=0$.
+
+\begin{corollary}\label{cor:classical}
+For $v\geq k\geq1$,
+\[
+c(v,k)=e_{v-k}(1,\ldots,v-1),\qquad
+\sum_{v\geq k}c(v,k)\frac{t^v}{v!}=\frac{(-\log(1-t))^k}{k!}.
+\]
+For $v\geq0$ there is the polynomial identity
+\[
+\sum_{k=0}^v c(v,k)b^k x^{v-k}=\prod_{j=0}^{v-1}(b+jx),
+\]
+which includes all four families of weighted row evaluations listed by
+Del\'eham (2007--2008), as well as the row sums $v!$.
+For $v>k\geq1$, the two recurrences posed by Kurkov in A132393,
+FORMULA (5 March 2025), are
+\begin{align*}
+(v-k)c(v,k)&=\sum_{j=2}^{v-k+1}\binom{-k}{j}(-1)^j c(v,k+j-1),\\
+(v-k)c(v,k)&=\sum_{j=2}^{v-k+1}(j-2)!\binom vj c(v-j+1,k).
+\end{align*}
+The row identity already appears in the Quaintance--Gould notes (2010),
+\S9.3.3, equation (9.20), there attributed to Hagen (1891)~\cite{qg}.
+In that notation set $d=v-k$ and replace the summation index $j$ by $v-r$;
+the binomial coefficient becomes $\binom r{k-1}$.
+The column recurrence has Petrov's proof of 1 March 2025;
+ploosu2 proved both by generating functions on 10 August 2025~\cite{recurrences}.
+Lee gave combinatorial proofs of both in 2026~\cite[Theorems 11 and 14]{lee}.
+For $v\geq1$ the weighted row sums are
+\begin{gather*}
+\sum_k k c(v,k)=v!H_v,\qquad
+\sum_k(k\mathbin{\pm}1)c(v,k)=v!(H_v\mathbin{\pm}1),\\
+\sum_k k c(v,v-k)=v!(v-H_v).
+\end{gather*}
+These give the first four Heinz formulas of 2 July 2026 in A132393.
+In order, the sequence identifications are A000254 at $v$;
+A000774 at $v$; A001705 at $v-1$; and A067318 at $v$~\cite{weighted}.
+\end{corollary}
+\begin{proof}
+Expanding $R_v(x)$ proves the elementary-symmetric formula and the homogeneous
+weighted-row identity, including $x=0$ as a polynomial specialization.
+The formal identity $\sum_{v\geq0}R_v(x)t^v/v!=(1-t)^{-x}$ follows from
+$(1-t)\partial_t G=xG$, $G(x,0)=1$; comparison of $x^k$ gives the column formula.
+For the first recurrence use $xR_v(x+1)=(x+v)R_v(x)$ and compare $x^k$:
+\[
+(v-k)c(v,k)=\sum_{r=k+1}^v\binom r{k-1}c(v,r).
+\]
+Put $r=k+j-1$ and use $\binom{k+j-1}j=(-1)^j\binom{-k}j$.
+For the second, put $L=-\log(1-t)$ and $G_k=L^k/k!$.
+Since $kG_k=(1-t)L G'_k$,
+\[
+tG'_k-kG_k=(t+(1-t)\log(1-t))G'_k
+ =\sum_{j\geq2}\frac{t^j}{j(j-1)}G'_k.
+\]
+Comparison of $t^v/v!$ gives the result, including the upper summation limit.
+Finally $R_v(1)=v!$ and $R'_v(1)=v!H_v$ prove the weighted sums;
+replace $k$ by $v-k$ for the last identity.
+\end{proof}
+
+The A132393 column e.g.f. line attributed to Lang (21 February 2017)
+omits $1/k!$ if ``e.g.f.'' denotes $\sum_v c(v,k)t^v/v!$.
+For example $c(2,2)=1$, whereas $[t^2](-\log(1-t))^2=1$;
+the required e.g.f. coefficient is $1/2$. Corollary~\ref{cor:classical}
+supplies the corrected normalization. This does not affect either conjecture.
+With the usual exponential Riordan convention
+$T(v,k)=v![t^v]g(t)f(t)^k/k!$, the same generating function gives
+$(g,f)=(1,-\log(1-t))$ for A132393.
+The pair $(1/(1-t),-\log(1-t))$ in the Stephan comment (7 February 2014)
+instead gives $c(v+1,k+1)$: differentiate $G_{k+1}$ in the preceding proof.
+At $(v,k)=(1,0)$ it gives $1$ instead of $c(1,0)=0$.
+Thus the corrected pair and its index-shift explanation follow from the
+same column formula.
+
+\section{Coverage and verification}
+\small
+\begin{longtable}{@{}p{0.40\linewidth}p{0.55\linewidth}@{}}\toprule
+Source item & Mathematical coverage \\\midrule\endhead
+A396563, FORMULA, revision 15 & Proved in Theorem~\ref{thm:main}; Schur reduction reproved, prior proofs Merca (2014), Amdeberhan--Ekhad (2022); integer-exponent extension, Corollary~\ref{cor:integer}.\\
+Amdeberhan--Ekhad (2022), Theorem 3, printed weights & Refuted-and-corrected in Corollary~\ref{cor:weights}; replace the ambient size $a$ by $N=a+b$ in the weights.\\
+Amdeberhan--Ekhad (2022), Theorem 2, second-kind alphabet & Refuted-and-corrected in~\eqref{eq:gamma}; alphabet $(1,\ldots,b+r)$, already implied by Merca (2014, Theorem 2.2), and explicit $7\ne25$ witness.\\
+A396563, EXAMPLE, all six rows & Proved as the $m=2$ specialization; all 42 printed cells are compared exactly.\\
+A000012, A000079 & Prior formulas cited; recovered as $B(n,0,2)=1$ and $B(0,k,2)=2^k$.\\
+General $B(0,k,m)$ & Reproved; prior proof Chandramouli (2002), Proposition 2, cited.\\
+A000914, FORMULA & Prior formula cited; recovered with the $n\mapsto n+1$ index shift.\\
+A001240, FORMULA and generating function & Reproved; prior formulas of Layman, Jovovic (2002), Fischer (2007), and Amdeberhan--Ekhad (2022, general rows) cited; Corollary~\ref{cor:rows}.\\
+A132393, Kurkov, 24 May 2026 & Proved in Corollary~\ref{cor:reciprocal}; all negative integer exponents in Corollary~\ref{cor:integer}.\\
+A132393, elementary-symmetric formula, Lang, 28 May 2017 & Reproved; prior formula cited; Corollary~\ref{cor:classical}.\\
+A132393, Del\'eham weighted-row families (2007--2008), row polynomials and row sums & Reproved; prior formulas cited; the single polynomial product in Corollary~\ref{cor:classical} covers every listed parameter.\\
+A132393, column e.g.f., Lang, 21 February 2017 & Refuted-and-corrected under the stated e.g.f. convention: factor $1/k!$; explicit $k=2$ witness above.\\
+A132393, Riordan pair, Stephan, 7 February 2014 & Refuted-and-corrected under the stated convention: replace $g=1/(1-t)$ by $g=1$; the printed pair gives $c(v+1,k+1)$.\\
+A132393, Kurkov row/column recurrences, 5 March 2025 & Reproved; prior row formula Quaintance--Gould (2010), attributed there to Hagen (1891); proofs Petrov (1 March 2025, column), ploosu2 (10 August 2025, both), Lee (2026, both); Corollary~\ref{cor:classical}.\\
+A132393, first four Heinz weighted sums, 2 July 2026 & Reproved; prior formulas cited; Corollary~\ref{cor:classical}.\\
+A132393, Heinz sum of squares and A047796 & Prior formula cited~\cite{weighted}; the A047796 defining sum is identical since signs disappear on squaring.\\
+A132393, remaining transforms and combinatorial interpretations, diagonal inversion, Boas--Buck recurrence and A354795 formula & Not covered; these separate identities are not needed for either nested sum.\\
+A000914, reciprocal-series evaluations (Eldar, 2022); A001240 beta-function formula & Not covered; analytic series and beta identities are separate from the finite identities here.\\\bottomrule
+\end{longtable}
+\normalsize
+
+\medskip
+The Lean declaration
+\href{https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean}{\texttt{KurkovStirlingMinor}\allowbreak\texttt{VandermondeSum.result}}
+has the statement
+\[
+\forall n,k,m\in\mathbb N,\quad m\geq1\Rightarrow B(n,k,m)=\texttt{sourceRHS}(n,k,m),
+\]
+using unsigned first-kind Stirling numbers and
+the antitone chain domain. Its scope is~\eqref{eq:sum}.
+
+The companion pinned declaration
+\href{https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.lean}{\texttt{KurkovNestedStirlingIdentity.}\allowbreak\texttt{result}}
+states
+\[
+\texttt{sourceRHS}(n,m)=\stir{n+m+1}{m+1},\qquad n\geq0,\ m\geq1;
+\]
+its \texttt{sourceRHS} includes exactly the prefactor and sign
+in~\eqref{eq:reciprocal}. Thus it covers the A132393 identity.
+
+The Schur interpretation, integer-exponent family, moment determinant,
+row generating functions, positivity, boundaries, $m=0$ extension and
+classical companion formulas have the written proofs above.
+The accompanying exact-rational checker compares seven expressions for
+245 triples $0\leq n,k\leq6$, $1\leq m\leq5$, involving 11,956 chains;
+it also checks 35 reciprocal-power pairs, 49 empty-sum cases, all 42 displayed
+array cells, and 135 distinct-alphabet cases. These finite comparisons are
+separate from the all-parameter proofs. Further exact comparisons cover
+every branch of~\eqref{eq:integer}, including $n=0$, mixed-sign rational alphabets,
+the row generating functions, the two companion recurrences and the e.g.f.
+normalization witness; their parameter ranges and counts are in \texttt{checks.json}.
+
+\begin{thebibliography}{9}
+\bibitem{kurkov} M. Kurkov, \emph{A396563}, The On-Line Encyclopedia of Integer
+Sequences, FORMULA and EXAMPLE, approved revision 15, 1 June 2026.
+\url{https://oeis.org/A396563/internal}.
+\bibitem{merca} M. Merca, \emph{Some experiments with complete and elementary
+symmetric functions}, Periodica Mathematica Hungarica \textbf{69} (2014),
+182--189, Theorems 2.1--2.2 and \S3.
+\href{https://doi.org/10.1007/s10998-014-0034-3}{doi:10.1007/s10998-014-0034-3}.
+\bibitem{ae} T. Amdeberhan and S. B. Ekhad,
+\emph{Using the Jacobi--Trudi formula to compute Stirling determinants},
+18 June 2022, Theorems 1--3.
+\url{https://arxiv.org/abs/2206.13244v1}.
+\bibitem{chandramouli} B. S. Chandramouli,
+\emph{New determinantal identities on Stirling numbers},
+Ars Combinatoria \textbf{65} (2002), 251--263, Proposition 2.
+\url{https://combinatorialpress.com/ars-articles/volume-065-ars-articles/new-determinantal-identities-on-stirling-numbers/}.
+\bibitem{tamvakis} H. Tamvakis, \emph{The theory of Schur polynomials revisited},
+L'Enseignement Math\'ematique \textbf{58} (2012), 147--163.
+\href{https://doi.org/10.4171/LEM/58-1-7}{doi:10.4171/LEM/58-1-7};
+full text \href{https://arxiv.org/abs/1008.3094v2}{arXiv:1008.3094v2} (2013),
+\S\S2.7, 3.2--3.5.
+\bibitem{boundaries} The OEIS Foundation Inc., \emph{A000012, A000079, A000914,
+A001240}, especially A000914, FORMULA, and A001240, FORMULA,
+H. Fischer, 25 June 2007.
+\url{https://oeis.org/A000914}; \url{https://oeis.org/A001240}.
+\bibitem{reciprocal} M. Kurkov, conjecture dated 24 May 2026 in \emph{A132393},
+FORMULA, The On-Line Encyclopedia of Integer Sequences.
+\url{https://oeis.org/A132393/internal}.
+\bibitem{recurrences} F. Petrov, answer, 1 March 2025, to
+\emph{Recursive algorithm for columns of Stirling numbers of the first kind},
+MathOverflow, \url{https://mathoverflow.net/a/488662}.
+ploosu2, answer, 10 August 2025, to \emph{Symmetric (under the swapping)
+recursions for Stirling numbers of both kinds}, Mathematics Stack Exchange,
+\url{https://math.stackexchange.com/a/5089097}.
+\bibitem{lee} K. Lee, \emph{Some New Identities for Stirling Numbers},
+Journal of Integer Sequences \textbf{29} (2026), Article 26.2.7,
+3 May 2026, Theorems 11, 14 and \S5.
+\url{https://cs.uwaterloo.ca/journals/JIS/VOL29/Lee/lee14.html}.
+\bibitem{qg} H. W. Gould, edited and compiled by J. Quaintance,
+\emph{Combinatorial Identities}, Volume 7 (2010),
+\S9.3.3, equation (9.20).
+\url{https://math.wvu.edu/~hgould/Vol.7.PDF}.
+\bibitem{weighted} The OEIS Foundation Inc., \emph{A000254, A000774,
+A001705, A067318, A047796}, NAME and FORMULA, unsigned Stirling weighted
+row sums and the sum of squares.
+\url{https://oeis.org/A000254}; \url{https://oeis.org/A000774};
+\url{https://oeis.org/A001705}; \url{https://oeis.org/A067318};
+\url{https://oeis.org/A047796}.
+\end{thebibliography}
+\smallskip\noindent\small
+\copyright\ 2026 Haobo Ma and Wenlin Zhang. Licensed under
+\href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International (CC BY 4.0)}.
+\end{document}

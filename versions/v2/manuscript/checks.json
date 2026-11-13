@@ -1,0 +1,41 @@
+{
+  "arithmetic": "exact rational",
+  "counts": {
+    "a396563_chain_instances": 11956,
+    "a396563_displayed_cells": 42,
+    "a396563_parameter_triples": 245,
+    "alphabet_identities": 135,
+    "empty_sum_extension": 49,
+    "reciprocal_chain_instances": 1708,
+    "reciprocal_parameter_pairs": 35
+  },
+  "integer_exponent_and_sibling_checks": {
+    "counts": {
+      "companion_recurrence_pairs": 105,
+      "corrected_egf_coefficients": 225,
+      "corrected_riordan_coefficients": 225,
+      "integer_alphabet_cases": 175,
+      "integer_chain_cases": 336,
+      "integer_chain_instances": 7448,
+      "rational_row_series_coefficients": 195,
+      "weighted_homogeneous_cases": 540,
+      "weighted_row_cases": 15,
+      "zero_n_integer_cases": 46
+    },
+    "ranges": {
+      "column_egf": "0 <= v,k <= 14",
+      "companion_recurrences": "1 <= k < v <= 15",
+      "integer_alphabets": "2 <= N <= 6; 1 <= m < N; -m-3 <= a <= N-m+3; x_i=(-1)^i(i^2+1)/(i+1)",
+      "integer_chains": "0 <= n <= 5; 1 <= m <= 4; -m-4 <= a <= n+4",
+      "row_series": "0 <= n <= 4; 1 <= m <= 3; coefficients through degree binomial(n+m,m)+4",
+      "weighted_rows": "1 <= v <= 15; -2 <= b,x <= 3"
+    },
+    "status": "all identities agree"
+  },
+  "ranges": {
+    "a396563": "0 <= n,k <= 6; 1 <= m <= 5",
+    "alphabets": "N=1,...,6; x_i=(i^2+1)/(i+1); 0 <= m <= N; 0 <= k <= 4",
+    "reciprocal": "0 <= n <= 6; 1 <= m <= 5"
+  },
+  "status": "all identities agree"
+}

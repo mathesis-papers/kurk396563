@@ -1,0 +1,62 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 113213,
+      "matches_public": null,
+      "path": "paper.pdf",
+      "public_sha256": null,
+      "sha256": "1a24a365e94677c5a949c9fafeab48e65cc2e9a0031402738f99932b2d1f60f0"
+    },
+    "source": {
+      "bytes": 18514,
+      "matches_public": null,
+      "path": "manuscript/",
+      "public_sha256": null,
+      "sha256": "ed4a98924bc8e3d3dc25b3302f5f79870f0500f8e4b20a000714a412edee476a"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We extend the Stirling determinant formulas of Merca (2014) and Amdeberhan–Ekhad (2022), giving a corrected subset expansion and a normalized proof of Kurkov's OEIS A396563 FORMULA conjecture, approved revision 15 (1 June 2026). The minor equals s_(k^m)(1,2,...,n+m) for all n,k >= 0, m >= 1; allowing every integer exponent yields a vanishing interval and an entire reciprocal-power family, including Kurkov's A132393 FORMULA conjecture (24 May 2026). We recover the earlier rational row generating functions and give a second-kind moment determinant. We also correct the alphabet in their second-kind Schur evaluation. Companion recurrences and two generating-function normalizations are treated with explicit attribution and coverage.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "url": "/api/v1/collected-papers/kurk396563/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-05T07:01:33.215052831Z",
+    "record": "kurk396563",
+    "repository_name": "6aec29cd3bcdf81eb5d50073",
+    "source": {
+      "url": "/api/v1/collected-papers/kurk396563/files/source?version=2"
+    },
+    "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-05T07:01:33.215052831Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "kurk396563"
+  }
+}

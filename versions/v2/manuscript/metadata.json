@@ -1,0 +1,15 @@
+{
+  "id": "kurk396563",
+  "revision": 2,
+  "problem_ids": ["kurk396563", "oeis-a132393-kurkov-nested-stirling-identity"],
+  "topic": "Corrected Stirling determinant formulas, integer-exponent subset sums and Kurkov's two nested-sum conjectures",
+  "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We extend the Stirling determinant formulas of Merca (2014) and Amdeberhan–Ekhad (2022), giving a corrected subset expansion and a normalized proof of Kurkov's OEIS A396563 FORMULA conjecture, approved revision 15 (1 June 2026). The minor equals s_(k^m)(1,2,...,n+m) for all n,k >= 0, m >= 1; allowing every integer exponent yields a vanishing interval and an entire reciprocal-power family, including Kurkov's A132393 FORMULA conjecture (24 May 2026). We recover the earlier rational row generating functions and give a second-kind moment determinant. We also correct the alphabet in their second-kind Schur evaluation. Companion recurrences and two generating-function normalizations are treated with explicit attribution and coverage.",
+  "summary": "A credited extension and corrected normalization of earlier Stirling determinant evaluations. Written proofs cover all integer exponents, both OEIS nested sums, the second-kind determinant and the companion formulas. Explicit examples demonstrate and correct the printed subset weights, the second-kind alphabet and two OEIS generating-function normalizations. Exact rational comparisons supplement the universal proofs.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+}

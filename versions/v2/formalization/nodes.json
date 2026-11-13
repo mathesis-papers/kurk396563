@@ -1,0 +1,284 @@
+{
+  "nodes": [
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s1",
+      "contributor": null,
+      "identity": "collected:kurk396563:2:s1",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+      },
+      "lineage": "collected:kurk396563:s1",
+      "macros": {
+        "\\Schur": "s",
+        "\\stir": "\\genfrac{[}{]}{0pt}{}{#1}{#2}"
+      },
+      "next_step": "Automatic translation needs attention before a proof can be checked.",
+      "proof_basis": null,
+      "proof_state": "needs_attention",
+      "receipt": null,
+      "record": "kurk396563",
+      "scope": "in_scope",
+      "statement": "For $n,k\\geq0$ and $m\\geq1$, put $N=n+m$.\nThe following identities also hold at $m=0$ with empty products:\n\\begin{align}\nB(n,k,m)&=\\Schur_{(k^m)}(1,2,\\ldots,N)\\\\\n&=\\frac{1}{\\prod_{i=0}^{m-1}(n+i)!}\n\\sum_{n\\geq j_1\\geq\\cdots\\geq j_m\\geq0}\n(-1)^{\\sum_tj_t}\n\\prod_{1\\leq q<p\\leq m}(j_q-j_p+p-q)^2\\notag\\\\[-2pt]\n&\\hspace{32mm}\\cdot\n\\prod_{t=1}^{m}\n\\frac{(n+t-1)_{\\underline{j_t}}(n-j_t+t)^{n+k}}\n{(j_t+m-t)!}.\n\\end{align}",
+      "status": "needs_attention",
+      "target_digest": null,
+      "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurk396563"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s2",
+      "contributor": null,
+      "identity": "collected:kurk396563:2:s2",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+      },
+      "lineage": "collected:kurk396563:s2",
+      "macros": {
+        "\\Schur": "s",
+        "\\stir": "\\genfrac{[}{]}{0pt}{}{#1}{#2}"
+      },
+      "next_step": "Automatic translation needs attention before a proof can be checked.",
+      "proof_basis": null,
+      "proof_state": "needs_attention",
+      "receipt": null,
+      "record": "kurk396563",
+      "scope": "in_scope",
+      "statement": "For $a\\geq1,b,r\\geq0$ and $N=a+b$, replace those weights by\n\\[\n\\widetilde A_i=(-1)^{N-i}\\frac{i^N}{N!}\\binom Ni\n              =\\frac{i^{N-1}}{P'(i)},\\qquad\nP(z)=\\prod_{j=1}^N(z-j),\\quad 1\\leq i\\leq N.\n\\]\nThen the corrected subset identity is\n\\[\n\\beta_r(a+b,b)=(-1)^{\\binom a2}\n\\sum_{1\\leq i_1<\\cdots<i_a\\leq N}\n\\prod_{u<v}(i_v-i_u)^2\\prod_{t=1}^a\\widetilde A_{i_t}i_t^{r-a+1}.\n\\]",
+      "status": "needs_attention",
+      "target_digest": null,
+      "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurk396563"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s3",
+      "contributor": null,
+      "identity": "collected:kurk396563:2:s3",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+      },
+      "lineage": "collected:kurk396563:s3",
+      "macros": {
+        "\\Schur": "s",
+        "\\stir": "\\genfrac{[}{]}{0pt}{}{#1}{#2}"
+      },
+      "next_step": "Automatic translation needs attention before a proof can be checked.",
+      "proof_basis": null,
+      "proof_state": "needs_attention",
+      "receipt": null,
+      "record": "kurk396563",
+      "scope": "in_scope",
+      "statement": "For $n,m\\geq1$ and any integer $a$, with $N=n+m$,\n\\begin{equation}\nF(n,m;a)=\n\\begin{cases}\n\\Schur_{((a-n)^m)}(1,\\ldots,N),&a\\geq n,\\\\\n0,&-m<a<n,\\\\\n\\displaystyle\\frac{(-1)^{nm}}{(N!)^{m+r}}\n\\Schur_{(r^n)}(1,\\ldots,N),&a=-m-r,\\quad r\\geq0.\n\\end{cases}\n\\end{equation}\nFor $n=0$, instead $F(0,m;a)=(m!)^a$ for every integer $a$.",
+      "status": "needs_attention",
+      "target_digest": null,
+      "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurk396563"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s4",
+      "contributor": null,
+      "identity": "collected:kurk396563:2:s4",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+      },
+      "lineage": "collected:kurk396563:s4",
+      "macros": {
+        "\\Schur": "s",
+        "\\stir": "\\genfrac{[}{]}{0pt}{}{#1}{#2}"
+      },
+      "next_step": "Automatic translation needs attention before a proof can be checked.",
+      "proof_basis": null,
+      "proof_state": "needs_attention",
+      "receipt": null,
+      "record": "kurk396563",
+      "scope": "in_scope",
+      "statement": "Let $\\left\\{\\begin{smallmatrix}u\\\\v\\end{smallmatrix}\\right\\}$ denote a Stirling\nnumber of the second kind, with value zero when $u<v$. For $n,k\\geq0,m\\geq1$,\n\\[\nB(n,k,m)=(-1)^{\\binom m2}\n\\det\\left[\\left\\{\\begin{matrix}n+k+i+j+1\\\\n+m\\end{matrix}\\right\\}\\right]_{0\\leq i,j<m}.\n\\]",
+      "status": "needs_attention",
+      "target_digest": null,
+      "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurk396563"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s5",
+      "contributor": null,
+      "identity": "collected:kurk396563:2:s5",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+      },
+      "lineage": "collected:kurk396563:s5",
+      "macros": {
+        "\\Schur": "s",
+        "\\stir": "\\genfrac{[}{]}{0pt}{}{#1}{#2}"
+      },
+      "next_step": "Automatic translation needs attention before a proof can be checked.",
+      "proof_basis": null,
+      "proof_state": "needs_attention",
+      "receipt": null,
+      "record": "kurk396563",
+      "scope": "in_scope",
+      "statement": "For fixed $n\\geq0,m\\geq1$, put $N=n+m$, $\\lambda_S=\\prod_{s\\in S}s$ and\n$D_S=\\prod_{s\\in S,t\\notin S}(s-t)$. Then, as a formal power series,\n\\[\n\\sum_{k\\geq0}B(n,k,m)z^k\n =\\sum_{|S|=m}\\frac{\\lambda_S^n}{D_S(1-\\lambda_S z)}.\n\\]\nConsequently the sequence in $k$ is annihilated by\n$\\prod_{|S|=m}(E-\\lambda_S)$, where $E$ shifts $k$ to $k+1$.",
+      "status": "needs_attention",
+      "target_digest": null,
+      "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurk396563"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s6",
+      "contributor": null,
+      "identity": "collected:kurk396563:2:s6",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+      },
+      "lineage": "collected:kurk396563:s6",
+      "macros": {
+        "\\Schur": "s",
+        "\\stir": "\\genfrac{[}{]}{0pt}{}{#1}{#2}"
+      },
+      "next_step": "Automatic translation needs attention before a proof can be checked.",
+      "proof_basis": null,
+      "proof_state": "needs_attention",
+      "receipt": null,
+      "record": "kurk396563",
+      "scope": "in_scope",
+      "statement": "For $n\\geq0,m\\geq1$, Kurkov's FORMULA conjecture in OEIS A132393,\ndated 24 May 2026, holds:\n\\begin{equation}\n\\stir{n+m+1}{m+1}=(n+m)!\\prod_{t=1}^m(n+t)^t\\,R(n,m).\n\\end{equation}",
+      "status": "needs_attention",
+      "target_digest": null,
+      "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurk396563"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s7",
+      "contributor": null,
+      "identity": "collected:kurk396563:2:s7",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "0eae8e045cb2ba958e2097dbac034f62f9c1dd7a",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/0eae8e045cb2ba958e2097dbac034f62f9c1dd7a/D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.lean"
+      },
+      "lineage": "collected:kurk396563:s7",
+      "macros": {
+        "\\Schur": "s",
+        "\\stir": "\\genfrac{[}{]}{0pt}{}{#1}{#2}"
+      },
+      "next_step": "Automatic translation needs attention before a proof can be checked.",
+      "proof_basis": null,
+      "proof_state": "needs_attention",
+      "receipt": null,
+      "record": "kurk396563",
+      "scope": "in_scope",
+      "statement": "For $v\\geq k\\geq1$,\n\\[\nc(v,k)=e_{v-k}(1,\\ldots,v-1),\\qquad\n\\sum_{v\\geq k}c(v,k)\\frac{t^v}{v!}=\\frac{(-\\log(1-t))^k}{k!}.\n\\]\nFor $v\\geq0$ there is the polynomial identity\n\\[\n\\sum_{k=0}^v c(v,k)b^k x^{v-k}=\\prod_{j=0}^{v-1}(b+jx),\n\\]\nwhich includes all four families of weighted row evaluations listed by\nDel\\'eham (2007--2008), as well as the row sums $v!$.\nFor $v>k\\geq1$, the two recurrences posed by Kurkov in A132393,\nFORMULA (5 March 2025), are\n\\begin{align*}\n(v-k)c(v,k)&=\\sum_{j=2}^{v-k+1}\\binom{-k}{j}(-1)^j c(v,k+j-1),\\\\\n(v-k)c(v,k)&=\\sum_{j=2}^{v-k+1}(j-2)!\\binom vj c(v-j+1,k).\n\\end{align*}\nThe row identity already appears in the Quaintance--Gould notes (2010),\n\\S9.3.3, equation (9.20), there attributed to Hagen (1891)~\\cite{qg}.\nIn that notation set $d=v-k$ and replace the summation index $j$ by $v-r$;\nthe binomial coefficient becomes $\\binom r{k-1}$.\nThe column recurrence has Petrov's proof of 1 March 2025;\nploosu2 proved both by generating functions on 10 August 2025~\\cite{recurrences}.\nLee gave combinatorial proofs of both in 2026~\\cite[Theorems 11 and 14]{lee}.\nFor $v\\geq1$ the weighted row sums are\n\\begin{gather*}\n\\sum_k k c(v,k)=v!H_v,\\qquad\n\\sum_k(k\\mathbin{\\pm}1)c(v,k)=v!(H_v\\mathbin{\\pm}1),\\\\\n\\sum_k k c(v,v-k)=v!(v-H_v).\n\\end{gather*}\nThese give the first four Heinz formulas of 2 July 2026 in A132393.\nIn order, the sequence identifications are A000254 at $v$;\nA000774 at $v$; A001705 at $v-1$; and A067318 at $v$~\\cite{weighted}.",
+      "status": "needs_attention",
+      "target_digest": null,
+      "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurk396563"
+    }
+  ]
+}

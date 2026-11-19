@@ -1,0 +1,140 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{Stirling minors and Schur polynomials}
+\author[Ma; Zhang]{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}Chrono AI, Singapore\\\inst{2}National University of Singapore, Singapore}
+\date{Mathesis version 2 · 5 November 2026}
+\begin{document}
+% Manuscript: opening story, source introduction
+\begin{frame}
+  \titlepage
+  \note{Begin with $x(x+1)(x+2)=x^3+3x^2+2x$ and the coefficient $c(3,2)=3$. Kurkov's A396563 asks why an alternating nested sum reproduces a Stirling determinant.}
+\end{frame}
+% Manuscript: story.md, question
+\begin{frame}{The question: why does the nested sum work?}
+  \begin{block}{A familiar start}
+    \centering
+    $x(x+1)(x+2)=x^3+3x^2+2x$,\qquad $c(3,2)=3$.
+  \end{block}
+  \vspace{4pt}
+  \begin{alertblock}{Research question}
+    Put $c(n+m+i,n+j)$ into a square matrix:
+    \[
+      B(n,k,m)=\det\!\left[c(n+m+i,n+j)\right]_{1\le i,j\le k}.
+    \]
+    Why should its value equal a nested sum of signs, factorials, and squares of differences?
+  \end{alertblock}
+  \note{Describe the object as a determinant of a coefficient table before introducing specialist language. The case $m=2$ is OEIS A396563; we work with general $m$.}
+\end{frame}
+\section{The bridge}
+\subsection{Determinant to Schur}
+% Manuscript: statements.md, s1
+\begin{frame}{The identity and its Schur interpretation}
+  \begin{bookresult}{s1-literal}
+    For $n,k\ge0$ and $m\ge1$,
+    \[ B(n,k,m)=F(n,m;n+k), \]
+    where $F$ is the normalized alternating chain sum.
+  \end{bookresult}
+  \begin{block}{Written Schur interpretation}
+    \[ B(n,k,m)=s_{(k^m)}(1,\ldots,n+m). \]
+  \end{block}
+  \note{The Lean declaration proves only the literal determinant-to-chain equality for $m\ge1$. The Schur equality is prior work of Merca and Amdeberhan--Ekhad, proved in the manuscript; it has its own formalization request. Define $F$ by the precise reading before using its abbreviation.}
+\end{frame}
+% Manuscript: story.md, proof mechanism
+\begin{frame}{Proof mechanism: a triangular basis change}
+  \begin{enumerate}
+    \item Each entry is a coefficient of one common polynomial times a monic lower-degree polynomial.
+    \item Replacing those polynomials by $1,z,z^2,\ldots$ is a triangular change with determinant $1$.
+    \item The new determinant contains elementary symmetric functions of $1,2,\ldots,N$.
+  \end{enumerate}
+  \begin{block}{Identification}
+    Dual Jacobi--Trudi gives the rectangle $s_{(k^m)}$. Its semistandard tableaux explain positivity and integrality.
+  \end{block}
+  \note{Explain the object before naming it: a tableau is a legal filling of a box rectangle, weak along rows and strict down columns. Its entry product is summed over all fillings.}
+\end{frame}
+% Manuscript: story.md, Vandermonde mechanism
+\begin{frame}{Why a Vandermonde square appears}
+  \begin{block}{Subset expansion}
+    The alternant chooses $m$ entries from $1,\ldots,N$; the denominator contains every chosen--unchosen difference.
+    \[
+      P(z)=\prod_{r=1}^{N}(z-r),\qquad P'(a)=(-1)^{N-a}(a-1)!(N-a)!.
+    \]
+  \end{block}
+  \begin{block}{Square and chain}
+    Pairing differences within the chosen set gives $\prod_{a<b}(b-a)^2$; set
+    $a_t=n-j_t+t$ to obtain $n\ge j_1\ge\cdots\ge j_m\ge0$.
+  \end{block}
+  \note{The substitution is a bijection between increasing subsets and decreasing chains. It explains the signs, factorials, and square together, rather than by finite pattern matching.}
+\end{frame}
+\section{Corrections}
+\subsection{Two witnesses}
+% Manuscript: statements.md, s2 and s4
+\begin{frame}{Two small witnesses expose the alphabet error}
+  \begin{block}{Two written corrections}
+    The subset weights require the alphabet size $N=a+b$. A distinct unnumbered correction uses $b+r$ in the second-kind Schur alphabet.\par\smallskip
+    First: correct value $3$; zero-extended printed weights give $1$.\par
+    Second: $S(4,2)=7$; the printed alphabet gives $25$.
+  \end{block}
+  \note{For the first witness, $(a,b,r)=(1,1,1)$ gives $-1+2\cdot2=3$, while zero-extending the printed weights gives $1$. For the second, $S(4,2)=7$ but the printed alphabet gives $25$. Both are written corrections, without Lean badges.}
+\end{frame}
+\section{Integer exponents}
+\subsection{Reciprocal branch}
+% Manuscript: statements.md, s3 and s6
+\begin{frame}{Allow every integer exponent}
+  \begin{block}{All integer exponents}
+    For $n,m\ge1$, $N=n+m$, the value of $F(n,m;a)$ is below. In the last line $r\ge0$:
+    \[
+    \begin{aligned}
+    a\ge n &: s_{((a-n)^m)}(1,\ldots,N),\\
+    -m<a<n &: 0,\\
+    a=-m-r &: \frac{(-1)^{nm}}{(N!)^{m+r}}s_{(r^n)}(1,\ldots,N).
+    \end{aligned}
+    \]
+  \end{block}
+  \note{Keep the boundary visible: when $n=0$, the value is $F(0,m;a)=(m!)^a$, not part of the vanishing interval. The zero regime comes from two equal rows in the alternant.}
+\end{frame}
+% Manuscript: statements.md, s6
+\begin{frame}{Reciprocal substitution gives A132393}
+  \begin{bookresult}{s6}
+    Set $a=-m-1$ and invert every variable. The $nm$ cross differences contribute $(-1)^{nm}$, and complementary rectangles give
+    \[
+      \left[\begin{matrix}n+m+1\\m+1\end{matrix}\right]
+      =(n+m)!\prod_{t=1}^{m}(n+t)^tR(n,m).
+    \]
+  \end{bookresult}
+  \note{This is the second literal source identity, corresponding to the frozen KurkovNestedStirlingIdentity.result. It meets the negative branch of s3, but its evidence scope is recorded separately.}
+\end{frame}
+\section{Consequences}
+\begin{frame}{A first-kind minor as second-kind moments}
+  \begin{block}{Written Corollary 4}
+    For $n,k\ge0$, $m\ge1$, $N=n+m$, define
+    \[ A_{ij}=S(n+k+i+j+1,N)\qquad(0\le i,j<m). \]
+    Then
+    \[ B(n,k,m)=(-1)^{\binom m2}\det A. \]
+  \end{block}
+  \note{The moments $M_\ell=\sum_{t=1}^N t^\ell/P'(t)$ equal $S(\ell+1,N)$. Cauchy--Binet produces the squared Vandermonde expansion and the parent subset formula supplies its sign. This is a written result, distinct from the corrected alphabet.}
+\end{frame}
+
+\subsection{What follows}
+% Manuscript: statements.md, s5 and s7
+\begin{frame}{The same expansion yields generating functions}
+  \begin{block}{Generating functions and companion identities}
+    The subset expansion gives a rational row generating function and shift recurrence. Companion formulas include the necessary $1/k!$ factor, the row polynomial, two recurrences, and harmonic weighted sums.
+  \end{block}
+  \note{These are written consequences and attributed earlier identities. Exact rational checks cover only the finite ranges listed in checks.json; they do not replace an all-parameter proof.}
+\end{frame}
+% Manuscript: story.md, scope
+\begin{frame}{Evidence boundary}
+  \begin{block}{Frozen Lean evidence}
+    The three-parameter A396563 nested identity;\\
+    the reciprocal-power A132393 identity.
+  \end{block}
+  \begin{alertblock}{Written mathematics in this paper}
+    The Schur evaluation, integer extension, moment determinant, corrections and companion results retain their own written proofs and contribution links.
+  \end{alertblock}
+  \note{End by separating written derivations from frozen declarations. The reading chapters carry the complete statements and contribution links.}
+\end{frame}
+\appendix
+% Manuscript: verification ledger (generated)
+\FormalVerification
+\end{document}

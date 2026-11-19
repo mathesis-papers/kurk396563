@@ -1,0 +1,25 @@
+{
+  "schema": "trureturing-books.lock.v1",
+  "repo": "the-omega-institute/trureturing",
+  "branch": "dev",
+  "commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+  "pinned_at": "2026-11-08T12:32:04Z",
+  "declarations": {
+    "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.result": {
+      "module": "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity",
+      "name": "D5.S1.Recurrence.Algebraic.KurkovNestedStirlingIdentity.result",
+      "kind": "theorem",
+      "statement_id": "sha256:c26fd5f1c44b86c431edeaf1f3a75902d6d166104ca08bbdcc99a50057e638f5",
+      "line": 177,
+      "signature": "theorem result (n m : ℕ) (_hm : 1 ≤ m) : sourceRHS n m = (Nat.stirlingFirst (n + m + 1) (m + 1) : ℚ)"
+    },
+    "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result": {
+      "module": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum",
+      "name": "D5.S3.Combinatorics.BinomialBases.KurkovStirlingMinorVandermondeSum.result",
+      "kind": "theorem",
+      "statement_id": "sha256:0ebb0a41317e1fc5e27d54da77e44a797fcebb57d018ea01b2904d40c66860ff",
+      "line": 715,
+      "signature": "theorem result : claim"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "book": "kurk396563",
+  "pending_claims": [],
+  "results": {
+    "s1-literal": {
+      "claim": "collected:kurk396563:2:s1",
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "same",
+      "gids": [
+        "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result"
+      ]
+    },
+    "s2": {
+      "claim": "collected:kurk396563:2:s2",
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "formalization_request": {
+        "label": "Corrected subset weights",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/257"
+      },
+      "gids": []
+    },
+    "s3": {
+      "claim": "collected:kurk396563:2:s3",
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "formalization_request": {
+        "label": "Integer-exponent Stirling-minor extension",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/258"
+      },
+      "gids": []
+    },
+    "s4": {
+      "claim": "collected:kurk396563:2:s4",
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "formalization_request": {
+        "label": "Stirling moment determinant",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/263"
+      },
+      "gids": []
+    },
+    "s5": {
+      "claim": "collected:kurk396563:2:s5",
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "formalization_request": {
+        "label": "Stirling-minor rational generating function",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/260"
+      },
+      "gids": []
+    },
+    "s6": {
+      "claim": "collected:kurk396563:2:s6",
+      "compared_public_gid": "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "same",
+      "gids": [
+        "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.result"
+      ]
+    },
+    "s7": {
+      "claim": "collected:kurk396563:2:s7",
+      "compared_public_gid": "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "formalization_request": {
+        "label": "Companion A132393 Stirling identities",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/261"
+      },
+      "gids": []
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
+    "zh": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)"
+  },
+  "version": 2,
+  "work": "kurk396563"
+}

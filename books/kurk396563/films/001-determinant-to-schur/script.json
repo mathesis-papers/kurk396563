@@ -1,0 +1,131 @@
+{
+  "voice": "af_heart",
+  "speed": 0.94,
+  "say": {
+    "Schur": "shore",
+    "Vandermonde": "van-der-monde",
+    "Stirling": "stir-ling"
+  },
+  "music": {
+    "bpm": 82,
+    "progression": "d-minor"
+  },
+  "scenes": [
+    {
+      "id": "question",
+      "name": "QUESTION",
+      "lead": 1.2,
+      "tail": 0.5,
+      "lines": [
+        [
+          "Start with x times x plus one times x plus two: its x-squared coefficient is three.",
+          "先看 x 乘 x 加一再乘 x 加二：x 平方的系数是三。"
+        ],
+        [
+          "The paper places these Stirling numbers in a determinant and asks why a nested sum reproduces it.",
+          "论文把这些斯特林数放进行列式，并追问嵌套和为什么会重现它。"
+        ]
+      ]
+    },
+    {
+      "id": "bridge",
+      "name": "THE BRIDGE",
+      "lead": 0.7,
+      "tail": 0.5,
+      "lines": [
+        [
+          "A triangular change of polynomial basis turns the coefficient matrix into a fixed alphabet: one through N.",
+          "多项式基的三角换基，把系数矩阵变成固定字母表：从一到 N。"
+        ],
+        [
+          "The determinant is the rectangular Schur polynomial s of k by m, evaluated on that alphabet.",
+          "行列式就是 k 乘 m 矩形的舒尔多项式，在这个字母表上取值。"
+        ],
+        [
+          "Its tableaux are legal fillings of a box rectangle, so positivity and integrality become visible.",
+          "它的半标准杨表就是方格矩形的合法填法，因此正性和整数性变得直观。"
+        ]
+      ]
+    },
+    {
+      "id": "vandermonde",
+      "name": "THE SQUARE",
+      "lead": 0.7,
+      "tail": 0.5,
+      "lines": [
+        [
+          "The alternant chooses m numbers and divides by differences between chosen and unchosen numbers.",
+          "交替行列式选出 m 个数字，再除以选中与未选中数字之间的差。"
+        ],
+        [
+          "Pairing those differences leaves a squared Vandermonde product, exactly the square in the nested sum.",
+          "把这些差配对，就留下范德蒙德平方，正是嵌套和里的平方。"
+        ],
+        [
+          "The substitution a sub t equals n minus j sub t plus t turns increasing subsets into decreasing chains.",
+          "换元 a 下标 t 等于 n 减 j 下标 t 加 t，把升序子集变成下降链。"
+        ]
+      ]
+    },
+    {
+      "id": "correction",
+      "name": "CORRECTION",
+      "lead": 0.6,
+      "tail": 0.5,
+      "lines": [
+        [
+          "At n equals m equals k equals one, the determinant is three.",
+          "当 n、m、k 都等于一时，行列式是三。"
+        ],
+        [
+          "Extending the undefined printed weights by zero gives one. The corrected weights give minus one plus two times two, which is three.",
+          "把印刷公式未定义的权重补成零会得到一；修正后是负一加二乘二，等于三。"
+        ],
+        [
+          "The same alphabet issue changes a second-kind value from the printed twenty-five to the correct seven.",
+          "同样的字母表问题，把第二类的印刷值二十五改回正确的七。"
+        ]
+      ]
+    },
+    {
+      "id": "reciprocal",
+      "name": "RECIPROCALS",
+      "lead": 0.7,
+      "tail": 0.7,
+      "lines": [
+        [
+          "For positive n and m, now allow every integer exponent.",
+          "当 n 与 m 都为正数时，允许指数取任意整数。"
+        ],
+        [
+          "Between minus m and n the alternant has two equal rows, so the value vanishes.",
+          "在负 m 与 n 之间，交替行列式有两行相同，所以值为零。"
+        ],
+        [
+          "At the negative branch, invert every variable; nm cross differences create the sign, and complementary rectangles explain the new Schur polynomial.",
+          "在负指数分支，把每个变量取倒数；nm 个交叉差产生符号，互补矩形解释新的舒尔多项式。"
+        ],
+        [
+          "At exponent minus m minus one, this becomes Kurkov's second nested identity in A132393.",
+          "指数取负 m 减一时，就得到 Kurkov 在 A132393 中的第二条嵌套恒等式。"
+        ]
+      ]
+    },
+    {
+      "id": "close",
+      "name": "LEDGER",
+      "lead": 0.6,
+      "tail": 2.2,
+      "lines": [
+        [
+          "The two literal nested identities are frozen Lean theorems; the Schur extension and corrections remain written mathematics in this paper.",
+          "两条逐字嵌套恒等式是冻结的 Lean 定理；舒尔推广和修正仍是本文的书面数学。"
+        ],
+        [
+          "The lesson is one chain: determinant, Schur polynomial, Vandermonde square, and reciprocal powers.",
+          "故事只有一条链：行列式、舒尔多项式、范德蒙德平方与倒数幂。"
+        ]
+      ]
+    }
+  ]
+}

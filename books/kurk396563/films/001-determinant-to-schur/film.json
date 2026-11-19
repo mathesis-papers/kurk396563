@@ -1,0 +1,30 @@
+{
+  "duration": "2:10",
+  "id": "001-determinant-to-schur",
+  "lean": [
+    "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+    "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.result"
+  ],
+  "narration": {
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "language": "en",
+    "voice": "af_heart"
+  },
+  "outputs": {
+    "cover": "kurk396563_001_cover.jpg",
+    "narrated_720p": "kurk396563_001_720p_narrated.mp4"
+  },
+  "publication_basis": "pinned",
+  "released": "2026-11-16",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "subject": "https://github.com/mathesis-papers/kurk396563",
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "summary": "A short tour of the Stirling-minor determinant, its Schur-polynomial form, the Vandermonde square, and the reciprocal-power branch.",
+  "summary_zh": "用一个小反例和一次倒数换元，走过斯特林行列式、舒尔多项式、范德蒙德平方与倒数幂分支。",
+  "title": "Determinant to Schur",
+  "title_zh": "行列式到舒尔"
+}

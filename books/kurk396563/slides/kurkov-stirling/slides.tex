@@ -1,0 +1,140 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{从斯特林行列式到舒尔多项式}
+\author[Ma; Zhang]{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}Chrono AI, Singapore\\\inst{2}National University of Singapore, Singapore}
+\date{Mathesis version 2 · 5 November 2026}
+\begin{document}
+% Manuscript: opening story, source introduction
+\begin{frame}
+  \titlepage
+  \note{先用 $x(x+1)(x+2)=x^3+3x^2+2x$ 说明第一类斯特林数。问题来自 Kurkov 的 A396563：为什么交替嵌套和会重现一个行列式？}
+\end{frame}
+% Manuscript: story.md, question
+\begin{frame}{问题：嵌套和为何等于行列式？}
+  \begin{block}{一个熟悉的起点}
+    \centering
+    $x(x+1)(x+2)=x^3+3x^2+2x$,\qquad $c(3,2)=3$.
+  \end{block}
+  \vspace{4pt}
+  \begin{alertblock}{研究问题}
+    把 $c(n+m+i,n+j)$ 排成方阵，所得行列式
+    \[
+      B(n,k,m)=\det\!\left[c(n+m+i,n+j)\right]_{1\le i,j\le k}
+    \]
+    为什么会等于带符号、阶乘和平方差的嵌套和？
+  \end{alertblock}
+  \note{把问题说成“系数表的行列式”，不先堆术语。$m=2$ 是 OEIS A396563 的具体情形；本报告先讲一般 $m$。}
+\end{frame}
+\section{换基}
+\subsection{行列式与舒尔}
+% Manuscript: statements.md, s1
+\begin{frame}{嵌套和等式与舒尔解释}
+  \begin{bookresult}{s1-literal}
+    对 $n,k\ge0$、$m\ge1$，
+    \[ B(n,k,m)=F(n,m;n+k), \]
+    其中 $F$ 是归一化带符号链和。
+  \end{bookresult}
+  \begin{block}{书面的舒尔解释}
+    \[ B(n,k,m)=s_{(k^m)}(1,\ldots,n+m). \]
+  \end{block}
+  \note{Lean 声明只证明 $m\ge1$ 的行列式到链和等式。舒尔求值是 Merca 与 Amdeberhan--Ekhad 的既有结果；原文给出证明，另有形式化任务。使用 $F$ 前应说明其归一化定义。}
+\end{frame}
+% Manuscript: story.md, proof mechanism
+\begin{frame}{证明机制：三角换基不改变行列式}
+  \begin{enumerate}
+    \item 每个矩阵元素是共同多项式乘以一个首项为 $1$ 的低次多项式的系数。
+    \item 换成 $1,z,z^2,\ldots$ 是行列式为 $1$ 的三角基变换。
+    \item 结果是固定字母表 $1,2,\ldots,N$ 的基本对称多项式。
+  \end{enumerate}
+  \begin{block}{识别}
+    对偶 Jacobi--Trudi 恒等式给出矩形 $s_{(k^m)}$。半标准填法模型解释正性与整数性。
+  \end{block}
+  \note{先解释对象，再说 Schur。每个合法矩形填法的格子乘积相加，就是舒尔多项式在 $1,\ldots,N$ 上的值。}
+\end{frame}
+% Manuscript: story.md, Vandermonde mechanism
+\begin{frame}{为什么出现范德蒙德平方？}
+  \begin{block}{子集展开}
+    交替行列式从 $1,\ldots,N$ 选出 $m$ 个数；分母包含选中与未选中数的所有差。
+    \[
+      P(z)=\prod_{r=1}^{N}(z-r),\qquad P'(a)=(-1)^{N-a}(a-1)!(N-a)!.
+    \]
+  \end{block}
+  \begin{block}{平方与链}
+    配对同一子集内的差得到 $\prod_{a<b}(b-a)^2$；置
+    $a_t=n-j_t+t$，就得到 $n\ge j_1\ge\cdots\ge j_m\ge0$。
+  \end{block}
+  \note{关键是一个双向换元：升序子集和下降链一一对应。因此符号、阶乘和平方差同时出现，而不是逐项猜出来。}
+\end{frame}
+\section{修正}
+\subsection{具体见证}
+% Manuscript: statements.md, s2 and s4
+\begin{frame}{两个小反例揭示字母表错误}
+  \begin{block}{两项书面修正}
+    子集权重必须使用字母表大小 $N=a+b$。另一项未编号的第二类修正使用 $b+r$，而非 $A$。\par\smallskip
+    第一项：正确值 $3$，错误零延拓值 $1$。\par
+    第二项：$S(4,2)=7$，印刷字母表给 $25$。
+  \end{block}
+  \note{第一个见证是 $(a,b,r)=(1,1,1)$：正确值 $-1+2\cdot2=3$，错误零延拓给 $1$。第二个见证是 $S(4,2)=7$，而印刷字母表给 $25$。这两个结果是书面修正，未加 Lean 徽章。}
+\end{frame}
+\section{整数指数}
+\subsection{倒数分支}
+% Manuscript: statements.md, s3 and s6
+\begin{frame}{把指数延伸到所有整数}
+  \begin{block}{所有整数指数}
+    对 $n,m\ge1$，$N=n+m$，$F(n,m;a)$ 分为三种情形；末行 $r\ge0$：
+    \[
+    \begin{aligned}
+    a\ge n &: s_{((a-n)^m)}(1,\ldots,N),\\
+    -m<a<n &: 0,\\
+    a=-m-r &: \frac{(-1)^{nm}}{(N!)^{m+r}}s_{(r^n)}(1,\ldots,N).
+    \end{aligned}
+    \]
+  \end{block}
+  \note{强调边界：$n=0$ 时不是中间零，而是 $F(0,m;a)=(m!)^a$。零区间来自交替行列式的两行相同。}
+\end{frame}
+% Manuscript: statements.md, s6
+\begin{frame}{倒数换元给出 A132393}
+  \begin{bookresult}{s6}
+    取 $a=-m-1$，把所有字母取倒数；$nm$ 个交叉差给出 $(-1)^{nm}$，互补矩形给出
+    \[
+      \left[\begin{matrix}n+m+1\\m+1\end{matrix}\right]
+      =(n+m)!\prod_{t=1}^{m}(n+t)^tR(n,m).
+    \]
+  \end{bookresult}
+  \note{这是第二条逐字源恒等式，对应冻结 Lean 的 KurkovNestedStirlingIdentity.result。它与 s3 的负指数分支相接，但证据范围仍单独记录。}
+\end{frame}
+\section{推论}
+\begin{frame}{用第二类矩表达第一类子式}
+  \begin{block}{书面推论 4}
+    对 $n,k\ge0$、$m\ge1$，令 $N=n+m$，并定义
+    \[ A_{ij}=S(n+k+i+j+1,N)\qquad(0\le i,j<m). \]
+    则
+    \[ B(n,k,m)=(-1)^{\binom m2}\det A. \]
+  \end{block}
+  \note{矩 $M_\ell=\sum_{t=1}^N t^\ell/P'(t)$ 等于 $S(\ell+1,N)$。Cauchy--Binet 给出范德蒙德平方展开，原子集公式提供符号。这是书面结果，与第二类字母表修正不同。}
+\end{frame}
+
+\subsection{生成函数}
+% Manuscript: statements.md, s5 and s7
+\begin{frame}{同一展开还给出生成函数与伴随公式}
+  \begin{block}{生成函数与伴随公式}
+    子集展开给出有理行生成函数与移位递推。伴随公式包含 $1/k!$ 因子、行多项式、两条递推与调和数加权和。
+  \end{block}
+  \note{这些是纸面推论与既有结果的整理。有限有理数检查只覆盖明确参数范围，不能替代全参数证明。}
+\end{frame}
+% Manuscript: story.md, scope
+\begin{frame}{证据边界}
+  \begin{block}{当前冻结 Lean 证据}
+    三参数 A396563 嵌套恒等式；\\
+    A132393 倒数幂恒等式。
+  \end{block}
+  \begin{alertblock}{仍属书面数学}
+    舒尔求值、整数指数推广、矩行列式、公式修正与伴随结果均有书面论证及各自的形式化参与链接。
+  \end{alertblock}
+  \note{结束主线时明确区分“纸面推导”和“冻结声明”。请求链接与完整陈述在阅读章节，不在这里重复操作流程。}
+\end{frame}
+\appendix
+% Manuscript: verification ledger (generated)
+\FormalVerification
+\end{document}

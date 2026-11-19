@@ -1,0 +1,48 @@
+{
+  "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+  "results": {
+    "s1-literal": {
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "same",
+      "scope": "The linked Lean declaration proves the literal nested-sum clause B(n,k,m)=F(n,m;n+k) for n,k natural and m>=1. The full Theorem 1 also states the Schur evaluation and m=0 boundary; those broader clauses are written mathematics and #262 tracks them."
+    },
+    "s2": {
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "scope": "The corrected subset weights are a written corollary of the parent subset construction; the public theorem does not state the corrected beta_r(a+b,b) formula or its witness."
+    },
+    "s3": {
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "scope": "The integer-exponent continuation reuses the parent subset construction but adds negative powers, a zero interval, a reciprocal branch, and the n=0 boundary absent from the public theorem."
+    },
+    "s4": {
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "scope": "Source Corollary 4 is the second-kind MOMENT determinant B=(-1)^(m choose 2) det[S(n+k+i+j+1,n+m)], n,k>=0,m>=1. It is distinct from the unnumbered corrected second-kind alphabet. The parent first-kind theorem supplies related infrastructure, not this complete statement; #263 tracks it."
+    },
+    "s5": {
+      "compared_public_gid": "D5/S3/Combinatorics/BinomialBases/KurkovStirlingMinorVandermondeSum.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "scope": "The rational row generating function and shift annihilator are consequences of the parent determinant/subset identity but are not stated by the public theorem."
+    },
+    "s6": {
+      "compared_public_gid": "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "same",
+      "scope": "Exact source claim: the Lean theorem result states sourceRHS(n,m)=Nat.stirlingFirst(n+m+1,m+1) for n>=0 and m>=1, matching the A132393 nested identity after the paper’s notation expansion."
+    },
+    "s7": {
+      "compared_public_gid": "D5/S1/Recurrence/Algebraic/KurkovNestedStirlingIdentity.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "variant",
+      "scope": "The companion A132393 package (elementary-symmetric formula, e.g.f., recurrences, and weighted sums) is broader and different from the inspected reciprocal nested identity."
+    }
+  },
+  "version": 1
+}

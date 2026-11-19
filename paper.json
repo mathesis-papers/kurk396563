@@ -2,16 +2,16 @@
   "files": {
     "pdf": {
       "bytes": 113213,
-      "matches_public": null,
+      "matches_public": true,
       "path": "paper.pdf",
-      "public_sha256": null,
+      "public_sha256": "1a24a365e94677c5a949c9fafeab48e65cc2e9a0031402738f99932b2d1f60f0",
       "sha256": "1a24a365e94677c5a949c9fafeab48e65cc2e9a0031402738f99932b2d1f60f0"
     },
     "source": {
       "bytes": 18514,
-      "matches_public": null,
+      "matches_public": true,
       "path": "source.archive",
-      "public_sha256": null,
+      "public_sha256": "ed4a98924bc8e3d3dc25b3302f5f79870f0500f8e4b20a000714a412edee476a",
       "sha256": "ed4a98924bc8e3d3dc25b3302f5f79870f0500f8e4b20a000714a412edee476a"
     }
   },
@@ -38,6 +38,8 @@
     "license": "CC-BY-4.0",
     "msc": [],
     "pdf": {
+      "bytes": 113213,
+      "sha256": "1a24a365e94677c5a949c9fafeab48e65cc2e9a0031402738f99932b2d1f60f0",
       "url": "/api/v1/collected-papers/kurk396563/files/pdf?version=2"
     },
     "previous_version": null,
@@ -46,6 +48,8 @@
     "record": "kurk396563",
     "repository_name": "kurk396563",
     "source": {
+      "bytes": 18514,
+      "sha256": "ed4a98924bc8e3d3dc25b3302f5f79870f0500f8e4b20a000714a412edee476a",
       "url": "/api/v1/collected-papers/kurk396563/files/source?version=2"
     },
     "title": "Corrected formulas and integer exponents for Amdeberhan–Ekhad (2022): Kurkov's OEIS A396563 FORMULA conjecture, revision 15 (1 June 2026)",
